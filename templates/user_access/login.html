@@ -1,0 +1,34 @@
+{% include 'base.html' %}
+
+{% block content %}
+<div class="profile-container">
+ <div class="col-sm-4 ml-4">
+          {% if messages %}
+          {% for i in messages %}
+              {{i}}
+          {% endfor %}
+      {% endif %}
+     <div class="card">
+          <div class="card-body">
+           <h3 class="text-center mb-4">Login</h3>
+                <form action="" method="post">
+                  {% csrf_token %}
+                    <div class="form-group">
+                    <label>Useranme</label>
+                    <input type="text"  class="form-control" placeholder="Enter username" name="username" required>
+
+                  </div>
+                  <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="Enter password" name="password" required>
+                  </div>
+                    <div class=" text-center">
+                  <button type="submit" class="btn btn-success mt-4">Log In</button>
+                    </div>
+                    <p>Don't have an account? <a href="{% url 'add_user' %}">Register</a></p>
+                </form>
+              </div>
+            </div>
+     </div>
+ </div>
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% include 'base.html' %}
+{% block title %}
+Login page
+{% endblock title %}
+
+{% block content %}
+  <div class="wrapper">
+    <form action="" method="post">
+      {% csrf_token %}
+      <h2>Login</h2>
+        <div class="input-field">
+        <label>Useranme</label>
+        <input type="text"  class="form-control" placeholder="Enter username" name="username" required>
+
+      </div>
+      <div class="input-field">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="password" required>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+      </div>
+      <button type="submit">Log In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="{% url 'add_user' %}">Register</a></p>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
